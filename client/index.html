@@ -5,34 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weed Warriors</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.13/dist/css/uikit.min.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.13/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.13/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.79.0/L.Control.Locate.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.79.0/L.Control.Locate.min.js"
+        charset="utf-8"></script>
+
+
 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" type="module"></script>
 </head>
 
 <body>
-
-    
-<form id="submission_form">
-    <div class="uk-margin">
-        <select class="uk-select" aria-label="Select">
-            <option>Okra [Abelmoschus esculentus] <img src="images/001.jpg"></option>
-            <option>Option 02</option>
-        </select>
-    </div>
-    <div class="uk-margin" uk-margin>
-        <div uk-form-custom="target: true">
-            <input type="file" aria-label="Custom controls">
-            <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" aria-label="Custom controls" disabled>
+    <!-- <div id="map"></div> -->
+    <div class="wrapper">
+        <div class="container">
+            <div id="form">
+                <div class="row">
+                    <p class="input-title">Your name</p>
+                    <div class="input-field col s6">
+                        <input disabled value="John" id="disabled" type="text" class="validate">
+                        <label for="disabled">First name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input disabled value="Smith" id="disabled" type="text" class="validate">
+                        <label for="disabled">Last name</label>
+                    </div>
+                </div>
+                <p class="input-title">Position</p>
+                <div class="input-field">
+                    <input disabled value="" id="coordinates" type="text" class="validate">
+                </div>
+                <div class="file-field input-field">
+                    <div class="input-field">
+                        <p class="input-title">Plant type</p>
+                        <select class="icons" id="plant-select">
+                            <option value="" disabled selected>Choose plant</option>
+                            <option value="001" data-icon="images/001.jpg">Okra [Abelmoschus esculentus]</option>
+                            <option value="002" data-icon="images/002.jpg">Balsam fir [Abies balsamea]</option>
+                            <option value="003" data-icon="images/003.jpg">Indian mallow [Abutilon]</option>
+                        </select>
+                        <img id="plant-img" src=""></img>
+                    </div>
+                    <p class="input-title">Please upload a photo of your observation</p>
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" multiple>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                    </div>
+                </div>
+            </div>
         </div>
-        <button class="uk-button uk-button-default">Submit</button>
     </div>
-    <!-- <select class="icons"> <option value="" disabled selected>Choose plant</option> <option value="" data-icon="images/001.jpg">Okra [Abelmoschus esculentus]</option> <option value="" data-icon="images/002.jpg">Balsam fir [Abies balsamea]</option> <option value="" data-icon="images/003.jpg">Indian mallow [Abutilon]</option> </select> -->
-</form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>
