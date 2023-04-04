@@ -1,26 +1,3 @@
-        #map { 
-            width: 100%;
-            height: 100%;
-            float: left;
-        }
-        #text {
-            height: 100%;
-            width: 40%;
-            float: right;
-        }
-        #geojsontext {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 20px;
-            width: 90%;
-            height: 80%;
-        }
-        #submit {
-            margin: 20px;
-        }
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+#submission_form {
+    width: 50%;
+}
