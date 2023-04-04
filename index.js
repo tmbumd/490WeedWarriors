@@ -5,8 +5,8 @@ const app = express();
 const port = 4000;
 const staticFolder = 'client';
 
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use(express.static(staticFolder));
 app.use('/api', apiRoutes);
