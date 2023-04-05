@@ -48,13 +48,16 @@
                 <div class="row">
                     <p class="input-title">Plant type</p>
                     <div class="input-field">
+                        <!-- <input type="text" id="autocomplete-input" class="autocomplete"> -->
+
                         <select class="icons" id="plant-select">
                             <option value="" disabled selected>Choose plant</option>
                             <option value="001" data-icon="images/001.jpg">Okra [Abelmoschus esculentus]</option>
                             <option value="002" data-icon="images/002.jpg">Balsam fir [Abies balsamea]</option>
                             <option value="003" data-icon="images/003.jpg">Indian mallow [Abutilon]</option>
                         </select>
-                        <img id="plant-img" src="" class="materialboxed"></img>
+                        <img id="plant-img" src=""></img>
+                        <!-- https://biati-digital.github.io/glightbox/ -->
                     </div>
                 </div>
                 <div class="row">
@@ -71,14 +74,19 @@
                 </div>
                 <div class="row">
                     <form class="col s12">
-                      <div class="row">
-                        <p class="input-title">Description</p>
-                        <div class="input-field col s12">
-                          <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <div class="row">
+                            <p class="input-title">Description</p>
+                            <div class="input-field col s12">
+                                <span class="helper-text">Location details, access issues, plant health ...</span>
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <!-- <label for="textarea1" class="active">Location details, access issues, plant health ...</label> -->
+                                
+                            </div>
                         </div>
-                      </div>
                     </form>
-                  </div>
+                </div>
+                <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit
+                </button>
             </div>
         </div>
     </div>
