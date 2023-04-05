@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let elems = document.querySelectorAll('select');
-    let instances = M.FormSelect.init(elems);
+    let selectElems = document.querySelectorAll('select');
+    M.FormSelect.init(selectElems);
     // elems = document.querySelectorAll('.materialboxed');
     // instances = M.Materialbox.init(elems);
     // let z = document.querySelectorAll('.autocomplete');
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const selectedPlant = document.querySelector('#plant-select')
     selectedPlant.addEventListener('change', function() {
         plantImageContainer.src = `images/${selectedPlant.value}.jpg`
-        console.log(`images/${selectedPlant.value}.jpg`)
+        // console.log(`images/${selectedPlant.value}.jpg`)
     })
 
     const coordinates = document.querySelector('#coordinates')

@@ -11,15 +11,15 @@
     font-size: 1.2em;
 }
 
-.select-dropdown {
+/* .select-dropdown {
     padding:20px;
-}
+} */
 
-.select-wrapper ul li {
-    padding:20px!important;
-}
+/* .select-wrapper ul li {
+    padding:5px!important;
+} */
 
 img {
-    max-width: 100%;
+    width: 100%;
     margin-top:20px;
 }
