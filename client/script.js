@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     let elems = document.querySelectorAll('select');
     let instances = M.FormSelect.init(elems);
-    elems = document.querySelectorAll('.materialboxed');
-    instances = M.Materialbox.init(elems);
+    // elems = document.querySelectorAll('.materialboxed');
+    // instances = M.Materialbox.init(elems);
     // let z = document.querySelectorAll('.autocomplete');
     // let x = M.Autocomplete.init(z, {
     //    data: {
