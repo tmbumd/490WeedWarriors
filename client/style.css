@@ -1,27 +1,19 @@
 .wrapper {
-    margin: 50px 20px 50px 20px;
+    margin: 30px 20px 50px 20px;
 }
 
 .container {
     max-width: 960px;
 }
 
-.input-title {
-    font-weight: 500;
-    font-size: 1.2em;
+label {
+    margin-bottom: 10px!important;
 }
 
-/* .select-dropdown {
-    padding:20px;
-} */
-
-/* .select-wrapper ul li {
-    padding:5px!important;
-} */
+.extraspace {
+    margin-bottom: 30px!important;
+}
 
 img {
     width: 100%;
-    /* margin-top:20px; */
 }
-
-/* .select-wrapper * { transition: none !important; transform: none !important; } */

@@ -1,43 +1,25 @@
-document.addEventListener('DOMContentLoaded', function() {
-    let selectElems = document.querySelectorAll('select');
-    M.FormSelect.init(selectElems);
-    // elems = document.querySelectorAll('.materialboxed');
-    // instances = M.Materialbox.init(elems);
-    // let z = document.querySelectorAll('.autocomplete');
-    // let x = M.Autocomplete.init(z, {
-    //    data: {
-    //       "Indian mallow [Abutilon]": 'images/003.jpg',
-    //       "Balsam fir [Abies balsamea]": 'images/002.jpg',
-    //       "Okra [Abelmoschus esculentus]": 'images/001.jpg'
-    //       },
-    //    minLength: 0, 
-    // });
+$('.ui.dropdown')
+    .dropdown(
+        {
+            fullTextSearch: true,
+            values: [{
+                "name": "Jenny",
+                "value": "jenny",
+                "image": "/images/001.jpg",
+                "imageClass": "ui mini avatar image"
+            },
+            {
+                "name": "Avatar1",
+                "value": "Avatar1",
+                "image": "/images/002.jpg",
+                "imageClass": "ui mini avatar image"
+            },
+            {
+                "name": "Avatar2",
+                "value": "Avatar2",
+                "image": "/images/003.jpg",
+                "imageClass": "ui mini avatar image"
+            }]
+        });
 
-
-    // const plantImageContainer = document.querySelector('#plant-img')
-    // const selectedPlant = document.querySelector('#autocomplete-input')
-    // selectedPlant.addEventListener('change', function() {
-    //     // plantImageContainer.src = `images/${selectedPlant.value}.jpg`
-    //     // console.log(`images/${selectedPlant.value}.jpg`)
-    //     // console.log(selectedPlant.value)
-    //     console.log(x.data)
-    // })
-
-
-    const plantImageContainer = document.querySelector('#plant-img')
-    const selectedPlant = document.querySelector('#plant-select')
-    selectedPlant.addEventListener('change', function() {
-        plantImageContainer.src = `images/${selectedPlant.value}.jpg`
-        // console.log(`images/${selectedPlant.value}.jpg`)
-    })
-
-    const coordinates = document.querySelector('#coordinates')
-    navigator.geolocation.getCurrentPosition(function(position) {
-        coordinates.value = `[${position.coords.latitude}, ${position.coords.longitude}]`
-        // console.log(`[${position.coords.latitude}, ${position.coords.longitude}]`)
-    })
-
-
-  });
-
-
+        $( "input" ).autocomplete( "disable" );
