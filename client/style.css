@@ -3,13 +3,19 @@
   font-size: 1em !important;
 }
 
+body {
+  min-height: 100vh;
+}
+
 .wrapper {
-  margin: 30px;
+  margin: 20px;
+  padding-bottom: 60px;
 }
 
 .container {
   max-width: 960px;
   margin: auto;
+  margin-bottom: 500px !important;
 }
 
 label {
