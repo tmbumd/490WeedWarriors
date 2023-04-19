@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://columbiaassociation.org/wp-content/uploads/CAtree4C.png">
     <title>Weed Warriors</title>
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
@@ -20,14 +21,15 @@
     <div class="wrapper">
         <div class="container">
             <form class="ui huge form">
+                <img src="/images/ca-logo.png" id="logo">
                 <div class="field">
                     <label>Name</label>
                     <div class="two fields extraspace">
                         <div class="field">
-                            <input type="text" name="shipping[first-name]" placeholder="First Name">
+                            <input type="text" name="first-name" placeholder="First Name">
                         </div>
                         <div class="field">
-                            <input type="text" name="shipping[last-name]" placeholder="Last Name">
+                            <input type="text" name="last-name" placeholder="Last Name">
                         </div>
                     </div>
                 </div>
@@ -40,23 +42,8 @@
                 <div class="field extraspace">
                     <label>Plant type</label>
                     <div class="ui fluid search selection dropdown">
-                        <input type="hidden" name="receipt">
                         <i class="dropdown icon"></i>
                         <div class="default text">Saved Contacts</div>
-                        <!-- <div class="menu">
-                            <div class="item" data-value="jenny" data-text="Jenny">
-                                <img class="ui mini avatar image" src="/images/001.jpg">
-                                Jenny Hess
-                            </div>
-                            <div class="item" data-value="elliot" data-text="Elliot">
-                                <img class="ui mini avatar image" src="/images/002.jpg">
-                                Elliot Fu
-                            </div>
-                            <div class="item" data-value="stevie" data-text="Stevie">
-                                <img class="ui mini avatar image" src="/images/003.jpg">
-                                Stevie Feliciano
-                            </div>
-                        </div> -->
                     </div>
                 </div>
                 <div class="field extraspace">

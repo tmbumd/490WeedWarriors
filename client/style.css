@@ -1,19 +1,24 @@
 .wrapper {
-    margin: 30px 20px 50px 20px;
+  margin: 30px 20px 50px 20px;
 }
 
 .container {
-    max-width: 960px;
+  max-width: 960px;
 }
 
 label {
-    margin-bottom: 10px!important;
+  margin-bottom: 10px !important;
 }
 
 .extraspace {
-    margin-bottom: 30px!important;
+  margin-bottom: 30px !important;
 }
 
 img {
-    width: 100%;
+  width: 100%;
+}
+
+#logo {
+  max-width: 150px;
+  margin-bottom: 40px;
 }
