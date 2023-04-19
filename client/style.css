@@ -1,9 +1,20 @@
+*:not(.icon) {
+  font-family: 'Karla', Arial, Helvetica, sans-serif!important;
+  font-size: 1.02em!important;
+}
+
+body {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
 .wrapper {
-  margin: 30px 20px 50px 20px;
+  margin: 20px;
 }
 
 .container {
   max-width: 960px;
+  margin: auto;
 }
 
 label {
@@ -15,10 +26,11 @@ label {
 }
 
 img {
-  width: 100%;
+  display: block;
+  margin: auto;
 }
 
 #logo {
   max-width: 150px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }

@@ -15,3 +15,6 @@ $('.ui.dropdown')
                 "value": "ATHYR"
             }]
         });
+
+        $( "input" ).autocomplete( "disable" );
+        $("div, form, input, select, textarea").attr("autocomplete", "off");
