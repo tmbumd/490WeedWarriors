@@ -16,5 +16,7 @@ $('.ui.dropdown')
             }]
         });
 
-        $( "input" ).autocomplete( "disable" );
-        $("div, form, input, select, textarea").attr("autocomplete", "off");
+const coordinates = document.querySelector('#coordinates')
+navigator.geolocation.getCurrentPosition(function (position) {
+    coordinates.value = `[${position.coords.latitude}, ${position.coords.longitude}]`
+})

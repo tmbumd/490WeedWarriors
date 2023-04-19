@@ -25,7 +25,6 @@
                 <div class="field">
                     <label>Name</label>
                     <div class="two fields extraspace">
-                        <!-- weird effect where if you comment out first field, autofill turns off -->
                         <div class="field">
                             <input type="text" name="first-name" placeholder="First Name">
                         </div>
@@ -37,14 +36,14 @@
                 <div class="field extraspace">
                     <label>Position</label>
                     <div class="ui disabled input">
-                        <input type="text" placeholder="">
+                        <input type="text" placeholder="" id="coordinates">
                     </div>
                 </div>
-                <div class="field extraspace" autocomplete="new-password">
+                <div class="field extraspace">
                     <label>Plant type</label>
-                    <div class="ui fluid search selection dropdown" autocomplete="new-password">
+                    <div class="ui fluid search selection dropdown">
                         <i class="dropdown icon"></i>
-                        <div class="default text" autocomplete="new-password"></div>
+                        <div class="default text"></div>
                     </div>
                 </div>
                 <div class="field extraspace">
@@ -66,4 +65,5 @@
         </div>
     </div>
 </body>
+
 </html>

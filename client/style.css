@@ -1,15 +1,10 @@
 *:not(.icon) {
-  font-family: 'Karla', Arial, Helvetica, sans-serif!important;
-  font-size: 1.02em!important;
-}
-
-body {
-  max-height: 100vh;
-  overflow: hidden;
+  font-family: "Karla", Arial, Helvetica, sans-serif !important;
+  font-size: 1em !important;
 }
 
 .wrapper {
-  margin: 20px;
+  margin: 30px;
 }
 
 .container {
