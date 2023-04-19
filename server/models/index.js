@@ -1,5 +1,5 @@
-import Records from './Records.js';
+import Catalog from './Catalog.js';
 
 export default {
-  Records
+  Catalog
 };

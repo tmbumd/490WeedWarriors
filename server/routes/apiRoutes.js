@@ -4,34 +4,17 @@ import db from '../database/initializeDB.js';
 const router = express.Router();
 
 router.route('/').get((req, res) => {
-  res.send('Welcome to the API!');
+  res.send('Welcome to the Weed Warriors API!');
 });
 
-router.route('/records')
-  .get(async (req, res) => { // res, req, next
+router.route('/catalog')
+  .get(async (req, res) => { 
     try {
-      const records = await db.Records.findAll();
-      //   const reply = availability.length > 0 ? { data: availability } : { message: 'no results found' };
-      res.json(records);
-    } catch (err) {
-      res.json('Server error');
-    }
-  });
-
-router.route('/geo')
-  .get(async (req, res) => {
-    const x = `SELECT jsonb_build_object(
-      'type',       'Feature',
-      'id',         id,
-      'geometry',   ST_AsGeoJSON(geom)::jsonb,
-      'properties', to_jsonb(row) - 'id' - 'geom'
-  ) FROM (SELECT * FROM input_table) row;
-    `
-    try {
-      const result = await db.sequelizeDB.query(x, { type: sequelize.QueryTypes.SELECT });
+      const catalog = await db.Catalog.findAll();
+      const result = catalog.length > 0 ? { data: catalog } : { message: 'No results found' };
       res.json(result);
     } catch (err) {
-      res.send(err);
+      res.json('Server error');
     }
   });
 

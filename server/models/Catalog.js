@@ -1,22 +1,25 @@
 export default (database, DataTypes) => {
-    const Records = database.define(
-      'records',
+    const Catalog = database.define(
+      'catalog',
       {
-        id: {
+        catalog_id: {
           type: DataTypes.INTEGER,
           allowNull: false,
           primaryKey: true
         },
-        geom: {
-          type: DataTypes.GEOMETRY('POINT'),
+        symbol: {
+          type: DataTypes.GEOMETRY('POLYGON'),
           allowNull: false
         },
-        name: {
+        latin_name: {
+          type: DataTypes.STRING
+        },
+        common_name: {
           type: DataTypes.STRING
         }
       },
       { freezeTableName: true, timestamps: false }
     );
-    return Records;
+    return Catalog;
   };
   

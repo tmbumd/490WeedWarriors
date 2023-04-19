@@ -1,12 +1,12 @@
 import Sequelize from 'sequelize';
 
 const { DataTypes } = Sequelize;
-// import { Records } from '../models/Records.js'
 import modelList from '../models/index.js';
 
-const sequelizeDB = new Sequelize('weedwarriors', 'postgres', '7872', {
-    host: 'localhost',
-    dialect: 'postgres'
+const sequelizeDB = new Sequelize('weedwarriors', 'avnadmin', 'AVNS_wbNozRCRePIYO0Z4CO8', {
+  host: 'subscription-surfer-nhaya.aivencloud.com',
+  dialect: 'mysql',
+  port: 16842
 });
 
 const db = Object.keys(modelList).reduce((collection, modelName) => {
