@@ -22,14 +22,20 @@
             <img src="/images/ca-logo.png" id="logo">
             <form class="ui form" autocomplete="off">
                 <div class="field">
-                    <label>Name</label>
+                    <label>Your name</label>
                     <div class="two fields extraspace">
                         <div class="field">
-                            <input type="text" name="first-name" placeholder="First Name">
+                            <input type="text" name="firstName" placeholder="First Name">
                         </div>
                         <div class="field">
-                            <input type="text" name="last-name" placeholder="Last Name">
+                            <input type="text" name="lastName" placeholder="Last Name">
                         </div>
+                    </div>
+                </div>
+                <div class="field extraspace">
+                    <label>Email address</label>
+                    <div class="ui input">
+                        <input type="text" name='email' placeholder="">
                     </div>
                 </div>
                 <div class="field extraspace">
@@ -40,24 +46,32 @@
                 </div>
                 <div class="field extraspace">
                     <label>Plant type</label>
-                    <div class="ui fluid search selection dropdown">
+                    <div class="ui fluid search selection dropdown plantType">
                         <i class="dropdown icon"></i>
-                        <div class="default text"></div>
+                        <div class="default text" name="plant"></div>
+                    </div>
+                </div>
+                <div class="field extraspace">
+                    <label>How severe is the invasion?</label>
+                    <div class="ui fluid selection dropdown severity">
+                        <input type="hidden" name="gender">
+                        <i class="dropdown icon"></i>
+                        <div class="default text" name="severityLevel"></div>
                     </div>
                 </div>
                 <div class="field extraspace">
                     <label>Please upload a photo of your observation</label>
                     <div>
                         <label for="hidden-new-file" class="ui icon button">
-                            <i class="cloud icon"></i>
+                            <i class="cloud icon"></i>&nbsp;
                             Open File
                         </label>
-                        <input type="file" id="hidden-new-file" style="display: none">
+                        <input type="file" id="hidden-new-file" name='file' style="display: none">
                     </div>
                 </div>
                 <div class="field extraspace">
                     <label>Description</label>
-                    <textarea rows="2"></textarea>
+                    <textarea rows="2" name="description"></textarea>
                 </div>
                 <button class="ui button" type="submit" id="submitBtn">Submit</button>
             </form>

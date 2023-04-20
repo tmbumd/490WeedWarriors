@@ -27,10 +27,6 @@ export default (database, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
-            customElements: {
-                type: DataTypes.STRING,
-                allowNull
-            },
             person_id: {
                 type: DataTypes.INTEGER,
                 allowNull: false
