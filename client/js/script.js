@@ -61,6 +61,16 @@ $(document).ready(function () {
                 });
                 resetForm();
                 document.querySelector("#successMessage").style.display = "block";
+
+                form.form('set values', {
+                    firstName: userInput.firstName,
+                    lastName: userInput.lastName,
+                    email: userInput.email
+                })
+
+                document.querySelectorAll('.saveInput').forEach(field => {
+                    field.style.opacity = .6
+                })
             }
         });
 });
