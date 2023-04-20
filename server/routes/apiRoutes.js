@@ -1,6 +1,23 @@
 import express from 'express';
 import sequelize from 'sequelize';
 import db from '../database/initializeDB.js';
+import { Storage } from '@google-cloud/storage';
+import Multer from 'multer';
+
+const multer = Multer({
+  storage: Multer.memoryStorage(),
+  limits: {
+    fileSize: 5 * 1024 * 1024, // No larger than 5mb, change as you need
+  },
+});
+
+let projectId = "INST490"; // Get this from Google Cloud
+let keyFilename = "keys.json"; // Get this from Google Cloud -> Credentials -> Service Accounts
+const storage = new Storage({
+  projectId,
+  keyFilename,
+});
+const bucket = storage.bucket("weedwarriors"); // Get this from Google Cloud -> Storage
 const router = express.Router();
 
 router.route('/').get((req, res) => {
@@ -18,16 +35,16 @@ router.route('/catalog')
     }
   });
 
-  router.route('/severity')
-    .get(async (req, res) => {
-      try {
-        const severity = await db.Severity.findAll();
-        const result = severity.length > 0 ? { data: severity } : { message: 'No results found' };
-        res.json(result);
-      } catch (err) {
-        res.json(err);
-      }
-    });
+router.route('/severity')
+  .get(async (req, res) => {
+    try {
+      const severity = await db.Severity.findAll();
+      const result = severity.length > 0 ? { data: severity } : { message: 'No results found' };
+      res.json(result);
+    } catch (err) {
+      res.json(err);
+    }
+  });
 
 router.route('/reports')
   .get(async (req, res) => {
@@ -47,7 +64,7 @@ router.route('/reports')
         report_id: currentId,
         timestamp: req.body.timestamp,
         catalog_id: req.body.catalog_id,
-        location: req.body.location, 
+        location: req.body.location,
         severity_id: req.body.severity_id,
         media_id: 1, //CREATE THIS
         comments: req.body.comments,
@@ -67,6 +84,35 @@ router.route('/custom/:query')
       res.json(result);
     } catch (err) {
       res.send(err);
+    }
+  });
+
+router.route('/upload')
+  .get(async (req, res) => {
+    try {
+      const [files] = await bucket.getFiles();
+      res.send([files]);
+      console.log("Success");
+    } catch (error) {
+      res.send("Error:" + error);
+    }
+  })
+  .post(async (req, res) => {
+    console.log("Made it /upload");
+    try {
+      if (req.file) {
+        console.log("File found, trying to upload...");
+        const blob = bucket.file(req.file.originalname);
+        const blobStream = blob.createWriteStream();
+        console.log(blob);
+        blobStream.on("finish", () => {
+          res.status(200).send("Success");
+          console.log("Success");
+        });
+        blobStream.end(req.file.buffer);
+      } else throw "error with img";
+    } catch (error) {
+      res.status(500).send(error);
     }
   });
 

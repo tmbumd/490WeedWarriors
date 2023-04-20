@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "inst490-384314",
+  "private_key_id": "23e0bdd1bd9d31e2bb15179c0f2120503c31ad9f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDbCL85q+k94S92\nVAer9ENCw3qYTu14aJqFhIqUS+fMVo049bLuFa+sukw402TpXPNbjrYyyCmKzO08\nhtOZ/UeJLB4zZLP/F+rvfNQO3Exg8fjcy4LjP8+8JZSImyjZ1byLlNBGrZ+3tHg+\nU8SUN8GFoIABqGKpV5xNeeVlVC0xv2OkIk9/yuak+1axVjHamCxMGcGy6iDrHjjA\nfpmDPynP7xQiLYGDvQuR60pAPKv8HA7sIMS2Eg5rXcS3GQwU2sWof4JuhXzH2nP/\nybpW3zpiHwm1yguFTwglCYM1w60wEAQ23I2Azw0x/jX+UdOEwXM2vZv/KbiCsv4X\nEkc/28nTAgMBAAECggEAZYvLF+Iu+ry9A9dWTS6rxjaZTiZ9as7YIKF/m9wLBY10\n4JzsTPvp26LtNoUu6g/pVR+3MZjhxZNXQzHgxSoK8bnt8Ha2CkRc65XMPG1+zY0x\nCrAhKNkLJpenoqOIj2FLjcy6uKHDA+ibvI2ae/rTce+kmOAniYnwEW07YDxjzYUp\nXzm5FKy5c21Nka/xKKpo4K3gJRZCcPtlBINjA11YN/7Y5nmHgI7TdqfBcvLjwZC+\n7l4oxAf0LFLh7zCOy0TnwqhvWv31wSsEcf8xWxAaF9SE/+Ce9TsevSLnIoDDMSqv\nuVM/HUETUyrZL2lntBlzdXJCiC5MGx+uQ9oAjRY/TQKBgQD2gIKSqJeRMSwaR/vJ\nSlVHOoh/zUj/CFB6tF8N08V5G961qHsAz/6D5s9a5PxOOVjfPecRwNgDX+WMHHBG\nu2CnuuXzasrQ+eUirLpVgEarDLZs/B2AKRuj4B6NZl5yX/qMc6C/TRWEHCY9XfTw\nSR7KsqPUpFFxWad4jqHxQOfgDQKBgQDjeUuBDI2gPtGQ0c0kOOzGr2CTXEem6F7E\nubaGMsCD7lKHJs568DIC6ynAi9Fux+s94HVNAZkQzSc5MGmFFaLsBcnFHKZHbdC8\noyco3M1AoE++0x050om6tJ6N6Qs8+pNHumDnbal2g2EokfvXHeq58xKhOJIh2R36\nmBh4WK/5XwKBgQDHxK4NHQR4bllHkz7CirNB3nXw3PVjeeF/D95Y3l8THzsGDVxh\n9C5Xxx4Uk67F1kPn58rz4E0vru/g9MspB4H1bMoe01U6tsqzpzf7QtICnXLaMBfY\nXXhA/sjD30p7dr0eRjbn0hi1z/pNkW+HrDqAGvYaxnAaZIYMdctYMTm5oQKBgQDJ\nBLiXmztQ4BKcEvthRjjfv73tm3/qXLDa0m8dGp6MOECQFNglRjw73gswj56NcnhN\nXxzp5z6X3WQLIuAs7pjiUJ8k5JOAzefHu7pwXue3c7PlI3VRUt/JsbHoIIiA48Lh\ngS//dCZsh9+FVbSjPlne55KQDIj/Bnp6qIv/Vgh0qwKBgQDc6rGD+tJ7qTaNwKUC\ntLDOCe0b5oqVRtE7XsLi1Edp7BYOIa6m/bpEAOHPzNdzVeQCe9kGBHiJNmbf0ALs\nwV9gDDzJPRojJvghpqYBPOZne1EbV2cKZKVwz5xUNkMYpsv9Mx4jQAWPchRS7U3T\ncJZ+52hHboTqay6TlNuyYn4GMQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "weedwarriors@inst490-384314.iam.gserviceaccount.com",
+  "client_id": "113837837350568469248",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/weedwarriors%40inst490-384314.iam.gserviceaccount.com"
+}
