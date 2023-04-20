@@ -27,6 +27,22 @@ function uuidv4() {
         ).toString(16)
     );
 }
+
+function getImageURL() {
+    let postid = uuidv4();
+    let inputElem = document.getElementById("imgfile");
+    let file = inputElem.files[0];
+    let blob = file.slice(0, file.size, "image/jpeg");
+    let formData = new FormData();
+    formData.append("imgfile", new File([blob], `${postid}.jpeg`, { type: "image/jpeg" }));
+    fetch("/upload", {
+        method: "POST",
+        body: formData,
+    }).then((res) => res.text())
+    .then(() => console.log(`https://storage.googleapis.com/weedwarriors/${postid}.jpeg`))
+}
+
+
 $(document).ready(function () {
     initializeForm();
     setUserCoordinates(latLong); // get user coordinates for demo
@@ -35,68 +51,27 @@ $(document).ready(function () {
         .querySelector(".form")
         .addEventListener("submit", async function (event) {
             event.preventDefault();
+
+
+
+
+            getImageURL()
+
+
+
+
+
+
+
+
+
+
+
+
+
             $(".ui.form").form("validate form");
             // post new report
             if (form.form("is valid")) {
-                let postid = uuidv4();
-                let inputElem = document.getElementById("hidden-new-file");
-                let file = inputElem.files[0];
-                // Create new file so we can rename the file
-                let blob = file.slice(0, file.size, "image/jpeg");
-                let newFile = new File([blob], `${postid}_post.jpeg`, { type: "image/jpeg" });
-                // Build the form data - You can add other input values to this i.e descriptions, make sure img is appended last
-                let formData = new FormData();
-                formData.append("hidden-new-file", newFile);
-                fetch("/api/upload", {
-                    method: "POST",
-                    body: formData,
-                })
-                    .then((res) => res.text())
-                    .then(loadPosts());
-                console.log('made it')
-
-                // Loads the posts on page load
-                function loadPosts() {
-                    fetch("/api/upload")
-                        .then((res) => res.json())
-                        .then((x) => {
-                            for (let y = 0; y < x[0].length; y++) {
-                                console.log(x[0][y]);
-                                const newimg = document.createElement("img");
-                                newimg.setAttribute(
-                                    "src",
-                                    "https://storage.googleapis.com/dansstorage/" + x[0][y].id
-                                );
-                                newimg.setAttribute("width", 50);
-                                newimg.setAttribute("height", 50);
-                                document.getElementById("images").appendChild(newimg);
-                            }
-                        });
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 // check for valid inputs
                 const userInput = $(".form").form("get values"); // get form values
@@ -108,8 +83,8 @@ $(document).ready(function () {
                 // TBD
 
                 // get media id for post request
-                const query = `SELECT * FROM media WHERE media_id=(SELECT max(media_id) FROM media)`;
-                const mediaFetch = await fetch(`/api/custom/${query}`);
+                const queryx = `SELECT * FROM media WHERE media_id=(SELECT max(media_id) FROM media)`;
+                const mediaFetch = await fetch(`/api/custom/${queryx}`);
                 const mediaID = await mediaFetch.json();
 
                 await fetch("/api/reports", {

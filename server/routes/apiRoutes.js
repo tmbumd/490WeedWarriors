@@ -1,23 +1,7 @@
 import express from 'express';
 import sequelize from 'sequelize';
 import db from '../database/initializeDB.js';
-import { Storage } from '@google-cloud/storage';
-import Multer from 'multer';
 
-const multer = Multer({
-  storage: Multer.memoryStorage(),
-  limits: {
-    fileSize: 5 * 1024 * 1024, // No larger than 5mb, change as you need
-  },
-});
-
-let projectId = "INST490"; // Get this from Google Cloud
-let keyFilename = "keys.json"; // Get this from Google Cloud -> Credentials -> Service Accounts
-const storage = new Storage({
-  projectId,
-  keyFilename,
-});
-const bucket = storage.bucket("weedwarriors"); // Get this from Google Cloud -> Storage
 const router = express.Router();
 
 router.route('/').get((req, res) => {
@@ -84,35 +68,6 @@ router.route('/custom/:query')
       res.json(result);
     } catch (err) {
       res.send(err);
-    }
-  });
-
-router.route('/upload')
-  .get(async (req, res) => {
-    try {
-      const [files] = await bucket.getFiles();
-      res.send([files]);
-      console.log("Success");
-    } catch (error) {
-      res.send("Error:" + error);
-    }
-  })
-  .post(async (req, res) => {
-    console.log("Made it /upload");
-    try {
-      if (req.file) {
-        console.log("File found, trying to upload...");
-        const blob = bucket.file(req.file.originalname);
-        const blobStream = blob.createWriteStream();
-        console.log(blob);
-        blobStream.on("finish", () => {
-          res.status(200).send("Success");
-          console.log("Success");
-        });
-        blobStream.end(req.file.buffer);
-      } else throw "error with img";
-    } catch (error) {
-      res.status(500).send(error);
     }
   });
 
