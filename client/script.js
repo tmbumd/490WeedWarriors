@@ -6,7 +6,7 @@ const plantData = []
 catalog.data.forEach(plant => {
     plantData.push({
         "name": `${plant.common_name} [<em>${plant.latin_name}</em>]`,
-        "value": plant.catalog_id
+        "value": `${plant.symbol},${plant.catalog_id}`
     })
 });
 
@@ -52,16 +52,26 @@ $('.ui.form')
         }
     });
 
-// get user coordinates
+// get user coordinates for demo
 const coordinates = document.querySelector('#coordinates')
 navigator.geolocation.getCurrentPosition(function (position) {
     coordinates.value = `[${position.coords.latitude}, ${position.coords.longitude}]`
 })
 
+
+// listen for plant selection to show link
+const plantSelector = document.querySelector('#plant')
+plantSelector.addEventListener('change', () => {
+    const link = `https://plants.usda.gov/home/plantProfile?symbol=${plantSelector.value.split(',')[0]}`
+    document.querySelector('#usdaLink').innerHTML = `<a href="${link}" target="_blank">${link}</a>`
+    return true // prevent listener error???
+})
+
+
 // handle form submission
 document.querySelector('#submitBtn').addEventListener('click', async (submitEvent) => {
     submitEvent.preventDefault(); // prevent page from refreshing
-    // get form values
-    const userInput = $('.form').form('get values')
+    const userInput = $('.form').form('get values') // get form values
     console.log(userInput);
+    return true // prevent listener error???
 });

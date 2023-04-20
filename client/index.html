@@ -20,6 +20,7 @@
     <div class="wrapper">
         <div class="container">
             <img src="/images/ca-logo.png" id="logo">
+            <h1 class="title">Report an invasive plant</h1>
             <form class="ui form" autocomplete="off">
                 <div class="field">
                     <label>Your name</label>
@@ -35,7 +36,7 @@
                 <div class="field extraspace">
                     <label>Email address</label>
                     <div class="ui input">
-                        <input type="text" name='email' placeholder="">
+                        <input type="text" name='email' placeholder="user@email.com">
                     </div>
                 </div>
                 <div class="field extraspace">
@@ -47,16 +48,18 @@
                 <div class="field extraspace">
                     <label>Plant type</label>
                     <div class="ui fluid search selection dropdown plantType">
+                        <input type="hidden" id="plant">
                         <i class="dropdown icon"></i>
-                        <div class="default text" name="plant"></div>
+                        <div class="default text"></div>
                     </div>
+                    <p id="usdaLink"></p>
                 </div>
                 <div class="field extraspace">
                     <label>How severe is the invasion?</label>
                     <div class="ui fluid selection dropdown severity">
-                        <input type="hidden" name="gender">
+                        <input type="hidden" name="severityLevel">
                         <i class="dropdown icon"></i>
-                        <div class="default text" name="severityLevel"></div>
+                        <div class="default text"></div>
                     </div>
                 </div>
                 <div class="field extraspace">
@@ -70,7 +73,7 @@
                     </div>
                 </div>
                 <div class="field extraspace">
-                    <label>Description</label>
+                    <label>Comments</label>
                     <textarea rows="2" name="description"></textarea>
                 </div>
                 <button class="ui button" type="submit" id="submitBtn">Submit</button>
