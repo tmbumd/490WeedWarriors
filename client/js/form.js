@@ -49,22 +49,6 @@ async function initializeForm() {
     });
 }
 
-function resetForm() {
-    $(".ui.form").form('clear')
-    fileUploadPath.innerHTML = ''
-    usdaLink.innerHTML = ''
-    setUserCoordinates()
-    document.querySelector("#successMessage").style.display = 'none';
-}
-
-function setUserCoordinates(currentLatLong) {
-    const coordinates = document.querySelector("#coordinates");
-    navigator.geolocation.getCurrentPosition(function (position) {
-        currentLatLong = `[${position.coords.latitude}, ${position.coords.longitude}]`
-        coordinates.value = currentLatLong;
-    });
-}
-
 // listen for plant selection to show link
 const plantSelector = document.querySelector("#plant");
 const usdaLink = document.querySelector("#usdaLink")
@@ -82,4 +66,4 @@ document.querySelector("#hidden-new-file").addEventListener("change", () => {
         .replace("C:\\fakepath\\", "");
 });
 
-export { initializeForm, resetForm, setUserCoordinates };
+export { initializeForm };
