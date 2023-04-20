@@ -59,11 +59,11 @@ plantSelector.addEventListener("change", () => {
 });
 
 // listen for file upload to show path
-// const fileUploadPath = document.querySelector("#uploadedFilePath")
-// document.querySelector("#hidden-new-file").addEventListener("change", () => {
-//     fileUploadPath.innerHTML = $(".form")
-//         .form("get value", "file")
-//         .replace("C:\\fakepath\\", "");
-// });
+const fileUploadPath = document.querySelector("#uploadedFilePath")
+document.querySelector("#hidden-new-file").addEventListener("change", () => {
+    fileUploadPath.innerHTML = $(".form")
+        .form("get value", "file")
+        .replace("C:\\fakepath\\", "");
+});
 
 export { initializeForm };

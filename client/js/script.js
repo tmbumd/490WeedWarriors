@@ -28,20 +28,19 @@ function uuidv4() {
     );
 }
 
-function getImageURL() {
+async function getImageURL() {
     let postid = uuidv4();
-    let inputElem = document.getElementById("imgfile");
+    let inputElem = document.getElementById("hidden-new-file");
     let file = inputElem.files[0];
     let blob = file.slice(0, file.size, "image/jpeg");
     let formData = new FormData();
-    formData.append("imgfile", new File([blob], `${postid}.jpeg`, { type: "image/jpeg" }));
-    fetch("/upload", {
+    formData.append("hidden-new-file", new File([blob], `${postid}.jpeg`, { type: "image/jpeg" }));
+    await fetch("/upload", {
         method: "POST",
         body: formData,
     }).then((res) => res.text())
-    .then(() => console.log(`https://storage.googleapis.com/weedwarriors/${postid}.jpeg`))
+    return `https://storage.googleapis.com/weedwarriors/${postid}.jpeg`
 }
-
 
 $(document).ready(function () {
     initializeForm();
@@ -51,41 +50,23 @@ $(document).ready(function () {
         .querySelector(".form")
         .addEventListener("submit", async function (event) {
             event.preventDefault();
-
-
-
-
-            getImageURL()
-
-
-
-
-
-
-
-
-
-
-
-
-
             $(".ui.form").form("validate form");
             // post new report
-            if (form.form("is valid")) {
-
-                // check for valid inputs
+            if (form.form("is valid")) { // check for valid inputs
                 const userInput = $(".form").form("get values"); // get form values
+                // get media id for post request
+                const query = `SELECT * FROM media WHERE media_id=(SELECT max(media_id) FROM media)`;
+                const mediaFetch = await fetch(`/api/custom/${query}`);
+                const mediaID = await mediaFetch.json();
+                // get google cloud url
+                const mediaURL = await getImageURL() 
+                console.log(mediaURL)
 
                 // get person id for post request or insert new person record
                 // TBD
 
                 // insert new media record
                 // TBD
-
-                // get media id for post request
-                const queryx = `SELECT * FROM media WHERE media_id=(SELECT max(media_id) FROM media)`;
-                const mediaFetch = await fetch(`/api/custom/${queryx}`);
-                const mediaID = await mediaFetch.json();
 
                 await fetch("/api/reports", {
                     method: "POST",
