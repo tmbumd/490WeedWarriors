@@ -39,7 +39,7 @@ async function initializeForm() {
         fields: {
             firstName: "empty",
             lastName: "empty",
-            email: 'empty',
+            email: 'email',
             position: "empty",
             plant: "empty",
             severityLevel: "empty",
