@@ -8,7 +8,7 @@ export default (database, DataTypes) => {
                 primaryKey: true
             },
             timestamp: {
-                type: DataTypes.DATE,
+                type: DataTypes.DATE, 
                 allowNull: false,
             },
             catalog_id: {
@@ -16,7 +16,7 @@ export default (database, DataTypes) => {
                 allowNull: false,
             },
             location: {
-                type: DataTypes.GEOMETRY('POLYGON'),
+                type: DataTypes.STRING,
                 allowNull: false
             },
             severity_id:{   
@@ -30,6 +30,10 @@ export default (database, DataTypes) => {
             person_id: {
                 type: DataTypes.INTEGER,
                 allowNull: false
+            },
+            comments: {
+                type: DataTypes.STRING,
+                defaultValue: null
             },
             verified:{
                 type: DataTypes.BOOLEAN,

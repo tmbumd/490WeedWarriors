@@ -14,6 +14,9 @@ export default (database, DataTypes) => {
             last_name: {
                 type: DataTypes.STRING,
                 allowNull: false
+            },
+            email: {
+                type: DataTypes.STRING,
             }
         },
         { freezeTableName: true, timestamps: false }

@@ -13,12 +13,8 @@
   margin: auto;
 }
 
-label {
-  margin-bottom: 10px !important;
-}
-
 .extraspace {
-  margin-bottom: 20px !important;
+  margin-bottom: 15px !important;
 }
 
 img {
@@ -36,11 +32,20 @@ img {
 }
 
 #plantGuide {
-  font-size: 1.2em !important;
-  padding:10px;
+  font-size: 1.1em !important;
+  padding:8px;
   border: 1px solid #eee;
   background-color: #eee;
   border-radius:10px;
-  max-width:150px;
+  max-width:160px;
   text-align: center;
+}
+
+#uploadedFilePath {
+  opacity: .6;
+  margin-top: 5px
+}
+
+#successMessage {
+  display: none
 }

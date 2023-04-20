@@ -14,7 +14,7 @@ router.route('/catalog')
       const result = catalog.length > 0 ? { data: catalog } : { message: 'No results found' };
       res.json(result);
     } catch (err) {
-      res.json('Server error');
+      res.json(err);
     }
   });
 
@@ -25,7 +25,7 @@ router.route('/catalog')
         const result = severity.length > 0 ? { data: severity } : { message: 'No results found' };
         res.json(result);
       } catch (err) {
-        res.json('Server error');
+        res.json(err);
       }
     });
 
@@ -36,7 +36,7 @@ router.route('/reports')
       const result = reports.length > 0 ? { data: reports } : { message: 'No results found' };
       res.json(result);
     } catch (err) {
-      res.json('Server error');
+      res.json(err);
     }
   })
   .post(async (req, res) => {
@@ -45,13 +45,13 @@ router.route('/reports')
     try {
       await db.Reports.create({
         report_id: currentId,
-        timestamp: req.timestamp,
-        catalog_id: req.catalog_id,
-        location: req.location, //CREATE THIS
-        severity_id: req.severity_id,
-        media_id: req.media_id, //CREATE THIS
-        comments: req.comments,
-        person_id: req.person_id, //FIND/CREATE THIS
+        timestamp: req.body.timestamp,
+        catalog_id: req.body.catalog_id,
+        location: req.body.location, 
+        severity_id: req.body.severity_id,
+        media_id: 1, //CREATE THIS
+        comments: req.body.comments,
+        person_id: 1, //FIND/CREATE THIS
         verified: 0
       });
       res.send('Successfully added');

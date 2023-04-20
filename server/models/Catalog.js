@@ -1,3 +1,5 @@
+import { DATEONLY } from "sequelize";
+
 export default (database, DataTypes) => {
   const Catalog = database.define(
     'catalog',
@@ -8,8 +10,7 @@ export default (database, DataTypes) => {
         primaryKey: true
       },
       symbol: {
-        type: DataTypes.GEOMETRY('POLYGON'),
-        allowNull: false
+        type: DataTypes.GEOMETRY('POLYGON')
       },
       latin_name: {
         type: DataTypes.STRING

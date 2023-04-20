@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
     <link rel="stylesheet" href="//brick.freetls.fastly.net/Karla:400,700,400i,700i">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" type="module"></script>
+    <script src="js/script.js" type="module"></script>
 </head>
 
 <body>
@@ -52,7 +52,7 @@
                         <div class="default text"></div>
                     </div>
                     <p id="usdaLink"></p>
-                    <p id="plantGuide"><a href="PlantGuide.pdf" target="_blank">Plant guide</a></p>
+                    <p id="plantGuide"><a href="PlantGuide.pdf" target="_blank">View plant guide</a></p>
                 </div>
                 <div class="field extraspace">
                     <label>How severe is the invasion?</label>
@@ -63,21 +63,27 @@
                     </div>
                 </div>
                 <div class="field extraspace">
-                    <label>Please upload a photo of your observation</label>
+                    <label>Please include a photo of your observation</label>
                     <div>
                         <label for="hidden-new-file" class="ui icon button">
-                            <i class="cloud icon"></i>&nbsp;
-                            Open File
+                            <i class="upload icon"></i>&nbsp;
+                            Upload File
                         </label>
                         <input type="file" id="hidden-new-file" name='file' style="display: none">
+                        <p id="uploadedFilePath"></p>
                     </div>
                 </div>
                 <div class="field extraspace">
                     <label>Comments</label>
-                    <textarea rows="2" name="description"></textarea>
+                    <textarea rows="2" name="comments"></textarea>
                 </div>
                 <button class="ui button" type="submit" id="submitBtn">Submit</button>
             </form>
+            <div class="ui positive message" id="successMessage">
+                <div class="header">
+                    Successfully submitted
+                </div>
+            </div>
         </div>
     </div>
 </body>
