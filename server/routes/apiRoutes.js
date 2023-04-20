@@ -18,6 +18,17 @@ router.route('/catalog')
     }
   });
 
+  router.route('/severity')
+    .get(async (req, res) => {
+      try {
+        const severity = await db.Severity.findAll();
+        const result = severity.length > 0 ? { data: severity } : { message: 'No results found' };
+        res.json(result);
+      } catch (err) {
+        res.json('Server error');
+      }
+    });
+
 router.route('/reports')
   .get(async (req, res) => {
     try {

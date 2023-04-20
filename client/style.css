@@ -32,5 +32,15 @@ img {
 }
 
 .title {
-  font-size: 1.7em!important;
+  font-size: 1.7em !important;
+}
+
+#plantGuide {
+  font-size: 1.2em !important;
+  padding:10px;
+  border: 1px solid #eee;
+  background-color: #eee;
+  border-radius:10px;
+  max-width:150px;
+  text-align: center;
 }
