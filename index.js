@@ -11,14 +11,14 @@ const multer = Multer({
 });
 
 let projectId = process.env.PROJECT_ID;
-let keyFilename = process.env.GC_SERVICE_ACCOUNT_CREDS;
+let keyFilename = 'GCKeys.json';
 const storage = new Storage({
     projectId,
     keyFilename,
 });
 const bucket = storage.bucket(process.env.BUCKET);
 const app = express();
-const PORT = process.env.PORT | 3000;
+const PORT = 3000;
 
 app.use(express.static('client'));
 app.use(express.urlencoded({ extended: true }));

@@ -54,26 +54,28 @@ $(document).ready(function () {
         .querySelector(".form")
         .addEventListener("submit", async function (event) {
             event.preventDefault();
+            getImageURL()
             // post new report
             if (form.form("is valid")) {
                 // check for valid inputs
+                getImageURL()
                 document.querySelector("#submitBtn").classList.add("disabled");
                 const userInput = $(".form").form("get values"); // get form values
-                // // get media id for post request
-                // let query = `SELECT media_id FROM media WHERE media_id=(SELECT max(media_id) FROM media)`;
-                // const mediaFetch = await fetch(`/api/custom/${query}`);
-                // const mediaID = (await mediaFetch) + 1
-                // console.log(mediaID)
-                // // get google cloud url
-                // const mediaURL = await getImageURL();
-                // // console.log(mediaURL);
+                // get media id for post request
+                let query = `SELECT media_id FROM media WHERE media_id=(SELECT max(media_id) FROM media)`;
+                const mediaFetch = await fetch(`/api/custom/${query}`);
+                const mediaID = (await mediaFetch) + 1
+                console.log(mediaID)
 
-                // // get person id for post request or insert new person record
-                // // check if user exists
-                // query = `SELECT user_id FROM users WHERE email = '${userInput.email}'`;
-                // const userFetch = await fetch(`/api/custom/${query}`);
-                // const userResult = await mediaFetch.json();
+                // get google cloud url
+                const mediaURL = await getImageURL();
+                console.log(mediaURL);
 
+                // get person id for post request or insert new person record
+                // check if user exists
+                query = `SELECT user_id FROM users WHERE email = '${userInput.email}'`;
+                const userFetch = await fetch(`/api/custom/${query}`);
+                const userResult = await mediaFetch.json();
 
                 // insert new media record
                 // TBD
