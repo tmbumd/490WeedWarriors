@@ -64,7 +64,8 @@ $(document).ready(function () {
                 // get media id for post request
                 let query = `SELECT media_id FROM media WHERE media_id=(SELECT max(media_id) FROM media)`;
                 const mediaFetch = await fetch(`/api/custom/${query}`);
-                const mediaID = (await mediaFetch) + 1
+                const mediaJSON = await mediaFetch.json()
+                const mediaID = mediaJSON[0].media_id + 1
                 console.log(mediaID)
 
                 // get google cloud url
@@ -73,9 +74,9 @@ $(document).ready(function () {
 
                 // get person id for post request or insert new person record
                 // check if user exists
-                query = `SELECT user_id FROM users WHERE email = '${userInput.email}'`;
-                const userFetch = await fetch(`/api/custom/${query}`);
-                const userResult = await mediaFetch.json();
+                // query = `SELECT user_id FROM users WHERE email = '${userInput.email}'`;
+                // const userFetch = await fetch(`/api/custom/${query}`);
+                // const userResult = await mediaFetch.json();
 
                 // insert new media record
                 // TBD
@@ -86,7 +87,7 @@ $(document).ready(function () {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        timestamp: new Date().toISOString().slice(0, 19).replace("T", " "),
+                        timestamp: new Date().toISOString().slice(0, 19).replace("T", " "), // FIX TIMEZONE
                         catalog_id: userInput.plant.split(",")[1],
                         location: latLong,
                         severity_id: userInput.severityLevel,
