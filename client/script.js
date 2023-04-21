@@ -1,4 +1,4 @@
-import { initializeForm } from "./form.js";
+import { initializeForm } from "./initializeForm.js";
 
 const form = $(".ui.form");
 let latLong = "";
@@ -48,7 +48,26 @@ async function getImageURL() {
 
 $(document).ready(function () {
     initializeForm();
-    setUserCoordinates(latLong); // get user coordinates for demo
+    setUserCoordinates(); // get user coordinates for demo
+
+    // listen for plant selection to show link
+    const plantSelector = document.querySelector("#plant");
+    const usdaLink = document.querySelector("#usdaLink")
+    plantSelector.addEventListener("change", () => {
+        // const link = `https://plants.usda.gov/home/plantProfile?symbol=${plantSelector.value.split(",")[0]}`;
+        const selectedPlant = plantSelector.value.split(",")[2]
+        const link = `https://www.google.com/search?q=${selectedPlant}&tbm=isch`;
+        usdaLink.innerHTML = `<a href="${link}" target="_blank">Google images for ${selectedPlant}</a>`;
+        // console.log(plantSelector.value)
+    });
+
+    // listen for file upload to show path
+    const fileUploadPath = document.querySelector("#uploadedFilePath")
+    document.querySelector("#hidden-new-file").addEventListener("change", () => {
+        fileUploadPath.innerHTML = $(".form")
+            .form("get value", "file")
+            .replace("C:\\fakepath\\", "");
+    });
     // handle form submission
     document
         .querySelector(".form")
@@ -61,12 +80,12 @@ $(document).ready(function () {
                 getImageURL()
                 document.querySelector("#submitBtn").classList.add("disabled");
                 const userInput = $(".form").form("get values"); // get form values
-                // get media id for post request
-                let query = `SELECT media_id FROM media WHERE media_id=(SELECT max(media_id) FROM media)`;
-                const mediaFetch = await fetch(`/api/custom/${query}`);
-                const mediaJSON = await mediaFetch.json()
-                const mediaID = mediaJSON[0].media_id + 1
-                console.log(mediaID)
+                // // get media id for post request
+                // let query = `SELECT media_id FROM media WHERE media_id=(SELECT max(media_id) FROM media)`;
+                // const mediaFetch = await fetch(`/api/custom/${query}`);
+                // const mediaJSON = await mediaFetch.json()
+                // const mediaID = mediaJSON[0].media_id + 1
+                // console.log(mediaID)
 
                 // get google cloud url
                 const mediaURL = await getImageURL();

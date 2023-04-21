@@ -1,2 +1,3 @@
-GCkeys.json
 .env
+package-lock.json
+GC_CREDS.json

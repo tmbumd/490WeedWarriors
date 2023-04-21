@@ -8,7 +8,7 @@ router.route('/').get((req, res) => {
   res.send('Welcome to the Weed Warriors API!');
 });
 
-  router.route('/catalog')
+router.route('/catalog')
   .get(async (req, res) => {
     try {
       const result = await db.sequelizeDB.query('SELECT * FROM catalog ORDER BY common_name', { type: sequelize.QueryTypes.SELECT });
@@ -54,7 +54,7 @@ router.route('/reports')
         user_id: 1, //FIND/CREATE THIS
         verified: 0
       });
-      res.send('Successfully added');
+      res.send('Report added');
     } catch (err) {
       res.send(err);
     }

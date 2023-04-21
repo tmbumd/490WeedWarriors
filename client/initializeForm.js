@@ -49,23 +49,4 @@ async function initializeForm() {
     });
 }
 
-// listen for plant selection to show link
-const plantSelector = document.querySelector("#plant");
-const usdaLink = document.querySelector("#usdaLink")
-plantSelector.addEventListener("change", () => {
-    // const link = `https://plants.usda.gov/home/plantProfile?symbol=${plantSelector.value.split(",")[0]}`;
-    const selectedPlant = plantSelector.value.split(",")[2]
-    const link = `https://www.google.com/search?q=${selectedPlant}&tbm=isch`;
-    usdaLink.innerHTML = `<a href="${link}" target="_blank">Google images for ${selectedPlant}</a>`;
-    // console.log(plantSelector.value)
-});
-
-// listen for file upload to show path
-const fileUploadPath = document.querySelector("#uploadedFilePath")
-document.querySelector("#hidden-new-file").addEventListener("change", () => {
-    fileUploadPath.innerHTML = $(".form")
-        .form("get value", "file")
-        .replace("C:\\fakepath\\", "");
-});
-
 export { initializeForm };
