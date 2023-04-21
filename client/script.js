@@ -14,7 +14,7 @@ function setUserCoordinates() {
 function resetForm() {
     $(".ui.form").form("clear");
     document.querySelector("#uploadedFilePath").innerHTML = "";
-    document.querySelector("#usdaLink").innerHTML = "";
+    document.querySelector("#plantLink").innerHTML = "";
     setUserCoordinates();
     document.querySelector("#successMessage").style.display = "none";
     document.querySelector("#submitBtn").classList.remove("disabled");
@@ -46,19 +46,18 @@ async function getImageURL() {
     return `https://storage.googleapis.com/weedwarriors/${postid}.jpeg`;
 }
 
-$(document).ready(function () {
-    initializeForm();
+document.addEventListener('DOMContentLoaded', async () => {
+    await initializeForm();
+    document.querySelector('.form').classList.remove('loading');
     setUserCoordinates(); // get user coordinates for demo
 
     // listen for plant selection to show link
     const plantSelector = document.querySelector("#plant");
-    const usdaLink = document.querySelector("#usdaLink")
+    const plantLink = document.querySelector("#plantLink")
     plantSelector.addEventListener("change", () => {
-        // const link = `https://plants.usda.gov/home/plantProfile?symbol=${plantSelector.value.split(",")[0]}`;
-        const selectedPlant = plantSelector.value.split(",")[2]
+        const selectedPlant = plantSelector.value.split(",")[3]
         const link = `https://www.google.com/search?q=${selectedPlant}&tbm=isch`;
-        usdaLink.innerHTML = `<a href="${link}" target="_blank">Google images for ${selectedPlant}</a>`;
-        // console.log(plantSelector.value)
+        plantLink.innerHTML = `<a href="${link}" target="_blank">Google images for ${selectedPlant}</a>`;
     });
 
     // listen for file upload to show path
@@ -68,6 +67,7 @@ $(document).ready(function () {
             .form("get value", "file")
             .replace("C:\\fakepath\\", "");
     });
+
     // handle form submission
     document
         .querySelector(".form")

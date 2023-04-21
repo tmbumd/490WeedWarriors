@@ -1,16 +1,16 @@
 async function initializeForm() {
     const catalogFetch = await fetch("/api/catalog");
     const catalog = await catalogFetch.json();
-    const plantData = [];
+    const catalogData = [];
     const severityFetch = await fetch("/api/severity");
     const severity = await severityFetch.json();
     const severityData = [];
 
     // create lists of values for dropdowns
     catalog.data.forEach((plant) => {
-        plantData.push({
+        catalogData.push({
             name: `${plant.common_name} [<em>${plant.latin_name}</em>]`,
-            value: `${plant.symbol},${plant.catalog_id},${plant.latin_name}`,
+            value: `${plant.symbol},${plant.catalog_id},${plant.latin_name},${plant.common_name}`,
         });
     });
 
@@ -31,7 +31,7 @@ async function initializeForm() {
     $(".ui.plantType").dropdown({
         fullTextSearch: true,
         placeholder: "Search plant",
-        values: plantData,
+        values: catalogData,
     });
 
     // define form fields
@@ -44,7 +44,7 @@ async function initializeForm() {
             plant: "empty",
             severityLevel: "empty",
             file: "empty",
-            comments: "minLength[0]",
+            comments: "minLength[0]", // make comments optional
         },
     });
 }

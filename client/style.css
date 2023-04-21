@@ -13,6 +13,13 @@
   margin: auto;
 }
 
+@media only screen and (min-width: 600px) {
+  .container {
+    min-width: 550px;
+    width: 50%;
+  }
+}
+
 .extraspace {
   margin-bottom: 15px !important;
 }
@@ -31,7 +38,8 @@ img {
   font-size: 1.7em !important;
 }
 
-#plantGuide, #plantIdentifier {
+#plantGuide,
+#plantIdentifier {
   padding: 8px;
   border: 1px solid #eee;
   background-color: #eee;
@@ -40,6 +48,7 @@ img {
   text-align: center;
   margin-top: -5px;
   margin-right: 10px;
+  margin-bottom: 5px;
 }
 
 #uploadedFilePath {
