@@ -16,10 +16,10 @@ export default (database, DataTypes) => {
                 allowNull: false,
             },
             location: {
-                type: DataTypes.GEOMETRY('POLYGON'),
+                type: DataTypes.STRING,
                 allowNull: false
             },
-            severity_id:{   
+            severity_id: {
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
@@ -27,15 +27,15 @@ export default (database, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
-            customElements: {
-                type: DataTypes.STRING,
-                allowNull
-            },
-            person_id: {
+            user_id: {
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
-            verified:{
+            comments: {
+                type: DataTypes.STRING,
+                defaultValue: null
+            },
+            verified: {
                 type: DataTypes.BOOLEAN,
                 allowNull: false
             }

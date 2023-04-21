@@ -8,14 +8,16 @@ export default (database, DataTypes) => {
         primaryKey: true
       },
       symbol: {
-        type: DataTypes.GEOMETRY('POLYGON'),
+        type: DataTypes.STRING,
         allowNull: false
       },
       latin_name: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
       },
       common_name: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
       }
     },
     { freezeTableName: true, timestamps: false }

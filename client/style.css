@@ -13,12 +13,8 @@
   margin: auto;
 }
 
-label {
-  margin-bottom: 10px !important;
-}
-
 .extraspace {
-  margin-bottom: 20px !important;
+  margin-bottom: 15px !important;
 }
 
 img {
@@ -29,4 +25,29 @@ img {
 #logo {
   max-width: 150px;
   margin-bottom: 30px;
+}
+
+.title {
+  font-size: 1.7em !important;
+}
+
+#plantGuide, #plantIdentifier {
+  padding: 8px;
+  border: 1px solid #eee;
+  background-color: #eee;
+  border-radius: 10px;
+  max-width: 160px;
+  text-align: center;
+  margin-top: -5px;
+  margin-right: 10px;
+}
+
+#uploadedFilePath {
+  opacity: 0.6;
+  margin-top: 5px;
+}
+
+#successMessage,
+#hidden-new-file {
+  display: none;
 }

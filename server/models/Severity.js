@@ -7,9 +7,12 @@ export default (database, DataTypes) => {
                 allowNull: false,
                 primaryKey: true
             },
-            url: {
+            category: {
                 type: DataTypes.STRING,
                 allowNull: false
+            },
+            description: {
+                type: DataTypes.STRING
             }
         },
         { freezeTableName: true, timestamps: false }
