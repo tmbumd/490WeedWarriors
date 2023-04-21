@@ -71,7 +71,17 @@ router.route('/reports')
       res.send(err);
     }
   });
+  router.route('/locations')
+    .get(async (req,res) =>{
+      try{
 
+      }catch (err) {
+        print(res.send(err))
+      }
+    })
+    .post(async (req,res) =>{
+
+    });
 router.route('/custom/:query')
   .get(async (req, res) => {
     try {
