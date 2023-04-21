@@ -29,6 +29,18 @@ router.route('/severity')
     }
   });
 
+router.route('/media')
+  .get(async (req, res) => {
+  })
+  .post(async (req, res) => {
+  });
+
+router.route('/users')
+  .get(async (req, res) => {
+  })
+  .post(async (req, res) => {
+  });
+
 router.route('/reports')
   .get(async (req, res) => {
     try {

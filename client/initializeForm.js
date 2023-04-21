@@ -37,8 +37,8 @@ async function initializeForm() {
     // define form fields
     $(".ui.form").form({
         fields: {
-            firstName: "empty",
-            lastName: "empty",
+            first_name: "empty",
+            last_name: "empty",
             email: 'email',
             position: "empty",
             plant: "empty",
