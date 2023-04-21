@@ -19,17 +19,17 @@ const sequelizeDB = new Sequelize(DB_DATABASE, DB_USER, DB_PASSWORD, {
 });
 
 const db = Object.keys(modelList).reduce((collection, modelName) => {
-    if (!collection[modelName]) {
-      collection[modelName] = modelList[modelName](sequelizeDB, DataTypes);
-    }
-    return collection;
-  }, {});
+  if (!collection[modelName]) {
+    collection[modelName] = modelList[modelName](sequelizeDB, DataTypes);
+  }
+  return collection;
+}, {});
 
 Object.keys(db).forEach((modelName) => {
-    if (db[modelName].associate) {
-      db[modelName].associate(db);
-    }
-  });
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
 
 db.sequelizeDB = sequelizeDB;
 db.Sequelize = Sequelize;

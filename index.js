@@ -6,17 +6,17 @@ import Multer from 'multer';
 const multer = Multer({
     storage: Multer.memoryStorage(),
     limits: {
-        fileSize: 5 * 1024 * 1024, 
+        fileSize: 5 * 1024 * 1024,
     },
 });
 
-let projectId = "INST490"; 
-let keyFilename = "GCkeys.json"; 
+let projectId = process.env.PROJECT_ID;
+let keyFilename = process.env.GC_SERVICE_ACCOUNT_CREDS;
 const storage = new Storage({
     projectId,
     keyFilename,
 });
-const bucket = storage.bucket("weedwarriors"); 
+const bucket = storage.bucket(process.env.BUCKET);
 const app = express();
 const PORT = process.env.PORT | 3000;
 
@@ -26,10 +26,8 @@ app.use(express.json());
 app.use('/api', apiRoutes);
 
 app.post("/upload", multer.single("hidden-new-file"), (req, res) => {
-    console.log("Made it /upload");
     try {
         if (req.file) {
-            console.log("File found, trying to upload...");
             const blob = bucket.file(req.file.originalname);
             const blobStream = blob.createWriteStream();
 

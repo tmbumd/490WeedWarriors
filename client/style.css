@@ -31,22 +31,23 @@ img {
   font-size: 1.7em !important;
 }
 
-#plantGuide {
-  font-size: 1.1em !important;
-  padding:8px;
+#plantGuide, #plantIdentifier {
+  padding: 8px;
   border: 1px solid #eee;
   background-color: #eee;
-  border-radius:10px;
-  max-width:160px;
+  border-radius: 10px;
+  max-width: 160px;
   text-align: center;
-  margin-top: -5px
+  margin-top: -5px;
+  margin-right: 10px;
 }
 
 #uploadedFilePath {
-  opacity: .6;
-  margin-top: 5px
+  opacity: 0.6;
+  margin-top: 5px;
 }
 
-#successMessage {
-  display: none
+#successMessage,
+#hidden-new-file {
+  display: none;
 }

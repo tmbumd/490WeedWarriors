@@ -8,14 +8,13 @@ router.route('/').get((req, res) => {
   res.send('Welcome to the Weed Warriors API!');
 });
 
-router.route('/catalog')
+  router.route('/catalog')
   .get(async (req, res) => {
     try {
-      const catalog = await db.Catalog.findAll();
-      const result = catalog.length > 0 ? { data: catalog } : { message: 'No results found' };
-      res.json(result);
+      const result = await db.sequelizeDB.query('SELECT * FROM catalog ORDER BY common_name', { type: sequelize.QueryTypes.SELECT });
+      res.json({ data: result });
     } catch (err) {
-      res.json(err);
+      res.send(err);
     }
   });
 
@@ -52,7 +51,7 @@ router.route('/reports')
         severity_id: req.body.severity_id,
         media_id: 1, //CREATE THIS
         comments: req.body.comments,
-        person_id: 1, //FIND/CREATE THIS
+        user_id: 1, //FIND/CREATE THIS
         verified: 0
       });
       res.send('Successfully added');

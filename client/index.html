@@ -2,62 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/favicon.ico" />
     <title>Weed Warriors</title>
     <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" />
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
-    <link rel="stylesheet" href="//brick.freetls.fastly.net/Karla:400,700,400i,700i">
-    <link rel="stylesheet" href="style.css">
-    <script src="js/script.js" type="module"></script>
+    <link rel="stylesheet" href="//brick.freetls.fastly.net/Karla:400,700,400i,700i" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" type="module"></script>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="container">
-            <img src="/images/ca-logo.png" id="logo">
+            <img src="/images/ca-logo.png" id="logo" />
             <h1 class="title">Report an invasive plant</h1>
             <form class="ui form" autocomplete="off">
                 <div class="field">
                     <label>Your name</label>
                     <div class="two fields extraspace">
                         <div class="field">
-                            <input type="text" name="firstName" placeholder="First Name" class="saveInput">
+                            <input type="text" name="firstName" placeholder="First Name" class="saveInput" />
                         </div>
                         <div class="field">
-                            <input type="text" name="lastName" placeholder="Last Name" class="saveInput">
+                            <input type="text" name="lastName" placeholder="Last Name" class="saveInput" />
                         </div>
                     </div>
                 </div>
                 <div class="field extraspace">
                     <label>Email address</label>
                     <div class="ui input">
-                        <input type="text" name='email' placeholder="user@email.com" class="saveInput">
+                        <input type="text" name="email" placeholder="user@email.com" class="saveInput" />
                     </div>
                 </div>
                 <div class="field extraspace">
                     <label>Position</label>
                     <div class="ui disabled input">
-                        <input type="text" placeholder="" id="coordinates">
+                        <input type="text" placeholder="" id="coordinates" />
                     </div>
                 </div>
                 <div class="field extraspace">
                     <label>Plant type</label>
                     <div class="ui fluid search selection dropdown plantType">
-                        <input type="hidden" id="plant" name="plant">
+                        <input type="hidden" id="plant" name="plant" />
                         <i class="dropdown icon"></i>
                         <div class="default text"></div>
                     </div>
                     <p id="usdaLink"></p>
-                    <p id="plantGuide"><a href="PlantGuide.pdf" target="_blank">View plant guide</a></p>
+                    <span id="plantGuide">
+                        <a href="PlantGuide.pdf" target="_blank">Common weeds</a>
+                    </span>
+                    <span id="plantIdentifier">
+                        <a href="https://plant.id" target="_blank">Plant identifier</a>
+                    </span>
                 </div>
                 <div class="field extraspace">
                     <label>How severe is the invasion?</label>
                     <div class="ui fluid selection dropdown severity">
-                        <input type="hidden" name="severityLevel">
+                        <input type="hidden" name="severityLevel" />
                         <i class="dropdown icon"></i>
                         <div class="default text"></div>
                     </div>
@@ -66,12 +71,9 @@
                     <label>Please include a photo of your observation</label>
                     <div>
                         <label for="hidden-new-file" class="ui icon button">
-                            <i class="upload icon"></i>&nbsp;
-                            Upload file
+                            <i class="upload icon"></i>&nbsp; Upload file
                         </label>
-                        <input type="file" id="hidden-new-file" name='file' style="display: none"accept="image/jpeg">
-                        
-    <!-- <input type="file" name="file" accept="image/jpeg" id="imgfile"> -->
+                        <input type="file" id="hidden-new-file" name="file" accept="image/jpeg" />
                         <p id="uploadedFilePath"></p>
                     </div>
                 </div>
@@ -82,9 +84,7 @@
                 <button class="ui button" type="submit" id="submitBtn">Submit</button>
             </form>
             <div class="ui positive message" id="successMessage">
-                <div class="header">
-                    Successfully submitted
-                </div>
+                <div class="header">Successfully submitted</div>
             </div>
         </div>
     </div>

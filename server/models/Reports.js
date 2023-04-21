@@ -8,7 +8,7 @@ export default (database, DataTypes) => {
                 primaryKey: true
             },
             timestamp: {
-                type: DataTypes.DATE, 
+                type: DataTypes.DATE,
                 allowNull: false,
             },
             catalog_id: {
@@ -19,7 +19,7 @@ export default (database, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            severity_id:{   
+            severity_id: {
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
@@ -27,7 +27,7 @@ export default (database, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
-            person_id: {
+            user_id: {
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
@@ -35,7 +35,7 @@ export default (database, DataTypes) => {
                 type: DataTypes.STRING,
                 defaultValue: null
             },
-            verified:{
+            verified: {
                 type: DataTypes.BOOLEAN,
                 allowNull: false
             }
