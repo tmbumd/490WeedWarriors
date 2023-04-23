@@ -52,11 +52,12 @@ async function getMediaID() {
     return media[0].length > 0 ? (media[0].media_id + 1) : 1;
 }
 
-async function getUserID() {
+async function getUserID(userInput) {
     const query = `SELECT user_id FROM users WHERE email = '${userInput.email}'`;
     const userFetch = await fetch(`/api/custom/${query}`);
     const user = await userFetch.json();
     let userID = user[0].length > 0 ? (user[0].user_id + 1) : -1;
+    return userID
 }
 
 function addListeners() {    // listen for plant selection to show link
@@ -77,19 +78,21 @@ function addListeners() {    // listen for plant selection to show link
     });
 }
 
-async function addUser() {
-    await fetch("/api/users", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            first_name: userInput.first_name,
-            last_name: userInput.last_name,
-            email: userInput.email
-        })
-    });
-}
+async function addUser(userInput) {
+    //touches post route, calls on find or create to add a new user only if their email is not already in the registry.
+    await fetch("/api/users",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                first_name: userInput.first_name,
+                last_name: userInput.last_name,
+                email: userInput.email
+            })
+        }).then((res) => res.text());
+    }
+    
 
 async function addMedia(mediaID, mediaURL) {
     await fetch("/api/media", {
@@ -105,6 +108,7 @@ async function addMedia(mediaID, mediaURL) {
 }
 
 async function addReport(mediaID, userID, userInput) {
+    media_url = getMediaURL()
     await fetch("/api/reports", {
         method: "POST",
         headers: {
@@ -118,7 +122,8 @@ async function addReport(mediaID, userID, userInput) {
             media_id: mediaID,
             user_id: userID,
             comments: userInput.comments,
-        }),
+            media_url: media_url
+        })
     }).then((res) => res.text());
 }
 
@@ -143,16 +148,20 @@ async function addFormHandler() {
 
             const mediaID = getMediaID() // get media id for post request
             const mediaURL = await getMediaURL(); // get google cloud url
+            let userID =  await getUserID();
             console.log(mediaURL);
             // addMedia(mediaID, mediaURL) // insert new media record
 
-            // let userID = getUserID()
-            // if (userID == -1) { // create user if doesn't exist
-            //     addUser()
-            //     userID = getUserID()
-            // }
+           
+            if (userID == -1) { // create user if doesn't exist
+                addUser()
+                userID = getUserID()
+            }
+            
 
-            addReport(mediaID, 1, userInput) // change to userID later
+            //adds new media to media table
+            addMedia(mediaID,mediaURL);
+            addReport(mediaID, userID, userInput); // change to userID later
             resetForm();
             document.querySelector("#successMessage").style.display = "block";
             preserveInput(userInput)
