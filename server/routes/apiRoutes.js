@@ -28,16 +28,6 @@ router.route('/severity')
       res.json(err);
     }
   });
-router.route('/catalog')
-  .get(async (req,res) => {
-    try{
-    const catalog = await db.catalog.findAll();
-    const result = severity.length > 0 ? { data: severity } : { message: 'No results found' };
-      res.json(result);
-    } catch (err) {
-      res.json(err);
-    }
-  });
 router.route('/media')
   .get(async (req, res) => {
     const media = await db.media.findAll();

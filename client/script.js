@@ -53,10 +53,12 @@ async function getMediaID() {
 }
 
 async function getUserID(userInput) {
+    console.log(userInput)
     const query = `SELECT user_id FROM users WHERE email = '${userInput.email}'`;
     const userFetch = await fetch(`/api/custom/${query}`);
     const user = await userFetch.json();
-    let userID = user[0].length > 0 ? (user[0].user_id + 1) : -1;
+    console.log(user)
+    let userID = user.length > 0 ? (user[0].user_id + 1) : -1;
     return userID
 }
 
@@ -86,8 +88,8 @@ async function addUser(userInput) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                first_name: userInput.first_name,
-                last_name: userInput.last_name,
+                first_name: userInput.firstName,
+                last_name: userInput.lastName,
                 email: userInput.email
             })
         }).then((res) => res.text());
@@ -108,7 +110,6 @@ async function addMedia(mediaID, mediaURL) {
 }
 
 async function addReport(mediaID, userID, userInput) {
-    media_url = getMediaURL()
     await fetch("/api/reports", {
         method: "POST",
         headers: {
@@ -148,14 +149,14 @@ async function addFormHandler() {
 
             const mediaID = getMediaID() // get media id for post request
             const mediaURL = await getMediaURL(); // get google cloud url
-            let userID =  await getUserID();
+            let userID =  await getUserID(userInput);
             console.log(mediaURL);
             // addMedia(mediaID, mediaURL) // insert new media record
 
            
             if (userID == -1) { // create user if doesn't exist
-                addUser()
-                userID = getUserID()
+                addUser(userInput)
+                userID = getUserID(userInput)
             }
             
 
