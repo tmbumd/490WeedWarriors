@@ -32,7 +32,7 @@ async function getMediaID() {
 }
 
 async function getUserID(userInput) {
-    const query = `SELECT user_id FROM users WHERE email = '${userInput.email}'`;
+    const query = `SELECT user_id FROM users WHERE email = '${userInput.email}' AND first_name = '${userInput.first_name}' AND last_name = '${userInput.last_name}'`;
     const userFetch = await fetch(`/api/custom/${query}`);
     const user = await userFetch.json();
     let userID = user.length > 0 ? user[0].user_id + 1 : -1;
