@@ -21,22 +21,23 @@
             <img src="/images/ca-logo.png" id="logo" />
             <h1 class="title">Report an invasive plant</h1>
             <form class="ui loading form" autocomplete="off">
-                <div class="field">
+                <div class="field" id="name-fields">
                     <label>Your name</label>
                     <div class="two fields extraspace">
-                        <div class="field">
-                            <input type="text" name="first_name" placeholder="First Name" class="saveInput" />
+                        <div class="field saveInput">
+                            <input type="text" name="first_name" placeholder="First Name"/>
                         </div>
-                        <div class="field">
-                            <input type="text" name="last_name" placeholder="Last Name" class="saveInput" />
+                        <div class="field saveInput">
+                            <input type="text" name="last_name" placeholder="Last Name" />
                         </div>
                     </div>
                 </div>
                 <div class="field extraspace">
                     <label>Email address</label>
-                    <div class="ui input">
-                        <input type="text" name="email" placeholder="user@email.com" class="saveInput" />
+                    <div class="ui input saveInput">
+                        <input type="text" name="email" placeholder="user@email.com" id="email"/>
                     </div>
+                    <p id="userInfoBtn"><a href="#">Log out</a></p>
                 </div>
                 <div class="field extraspace">
                     <label>Position</label>

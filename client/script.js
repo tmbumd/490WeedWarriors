@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 alert("Error: Position is unavailable!");
             }
         },
-        { timeout: 5000 } // check every 5 seconds 
+        { timeout: 0 } 
     );
 
     $form.on("submit", async function (e) {

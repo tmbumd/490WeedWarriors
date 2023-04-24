@@ -65,3 +65,13 @@ img {
 #hidden-new-file {
   display: none;
 }
+
+#userInfoBtn {
+  text-align: right;
+  margin-top: 5px;
+}
+
+#userInfoBtn a {
+  display: none;
+  margin-bottom: -30px
+}

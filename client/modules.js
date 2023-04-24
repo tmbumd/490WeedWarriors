@@ -20,15 +20,9 @@ function uuidv4() {
 }
 
 function preserveInput(userInput) {
-    if (!localStorage.getItem("email")) {
-        localStorage.setItem("email", JSON.stringify(userInput.email));
-    }
-    if (!localStorage.getItem("first_name")) {
-        localStorage.setItem("first_name", JSON.stringify(userInput.first_name));
-    }
-    if (!localStorage.getItem("last_name")) {
-        localStorage.setItem("last_name", JSON.stringify(userInput.last_name));
-    }
+    localStorage.setItem("email", JSON.stringify(userInput.email));
+    localStorage.setItem("first_name", JSON.stringify(userInput.first_name));
+    localStorage.setItem("last_name", JSON.stringify(userInput.last_name));
     restoreInput()
 }
 
@@ -42,11 +36,23 @@ function restoreInput() {
             last_name: last_name,
             email: email,
         });
-        document.querySelectorAll(".saveInput").forEach((field) => {
-            field.style.opacity = 0.6;
-        });
-    }
+
+        document.querySelectorAll(".saveInput").forEach((field) => { field.classList.add('disabled') });
+        document.querySelector('#userInfoBtn a').style.display = 'block';
+    } 
 }
+
+function clearInput() {
+    document.querySelector('#userInfoBtn a').style.display = 'none';
+    localStorage.removeItem("email");
+    localStorage.removeItem("first_name");
+    localStorage.removeItem("last_name");
+    document.querySelectorAll(".saveInput").forEach((field) => { field.classList.remove('disabled') });
+}
+
+document.querySelector('#userInfoBtn a').addEventListener('click', (e) => {
+    clearInput()
+})
 
 async function initializeForm() {
     // create lists of values for dropdowns
