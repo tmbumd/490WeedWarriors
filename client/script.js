@@ -3,10 +3,10 @@ import {
     initializeForm,
     resetForm,
     uuidv4,
-    preserveInput
+    preserveInput,
 } from "./modules.js";
 
-const $form = $('.ui.form');
+const $form = $(".ui.form");
 
 async function getMediaURL() {
     let postID = uuidv4();
@@ -79,7 +79,7 @@ async function addReport(mediaID, userID, userInput) {
             severity_id: 1,
             media_id: mediaID,
             comments: userInput.comments,
-            user_id: userID
+            user_id: userID,
         }),
     }).then((res) => res.text());
 }
@@ -87,23 +87,34 @@ async function addReport(mediaID, userID, userInput) {
 document.addEventListener("DOMContentLoaded", async () => {
     await initializeForm();
     $form.removeClass("loading");
-    navigator.geolocation.watchPosition(setUserCoordinates());
+    navigator.geolocation.watchPosition(
+        setUserCoordinates,
+        function (err) {
+            if (err.code == 1) {
+                alert("Error: Access is denied!");
+            } else if (err.code == 2) {
+                alert("Error: Position is unavailable!");
+            }
+        },
+        { timeout: 0 }
+    );
 
     $form.on("submit", async function (e) {
         e.preventDefault();
         if ($form.form("is valid")) {
             document.querySelector("#submitBtn").classList.add("disabled");
             const userInput = $form.form("get values"); // get form values
-            console.log(userInput)
+            console.log(userInput);
             const mediaID = await getMediaID(); // get media id for post request
-            console.log(mediaID)
+            console.log(mediaID);
             const mediaURL = await getMediaURL(); // get google cloud url
-            console.log(mediaURL)
-            addMedia(mediaID, mediaURL) // insert new media record
-            console.log('added media')
+            console.log(mediaURL);
+            addMedia(mediaID, mediaURL); // insert new media record
+            console.log("added media");
 
             let userID = await getUserID(userInput);
-            if (userID == -1) { // create user if doesn't exist
+            if (userID == -1) {
+                // create user if doesn't exist
                 addUser(userInput);
                 userID = getUserID(userInput);
             }
@@ -115,4 +126,3 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 });
-

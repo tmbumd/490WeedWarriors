@@ -1,8 +1,5 @@
-function setUserCoordinates() {
-    const coordinates = document.querySelector("#position");
-    navigator.geolocation.getCurrentPosition(function (position) {
-        coordinates.value = `[${position.coords.latitude}, ${position.coords.longitude}]`;
-    });
+function setUserCoordinates(position) {
+    document.querySelector("#position").value = `[${position.coords.latitude}, ${position.coords.longitude}]`;
 }
 
 function resetForm() {
