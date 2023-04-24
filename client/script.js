@@ -102,13 +102,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             addMedia(mediaID, mediaURL) // insert new media record
             console.log('added media')
 
-            // let userID = await getUserID(userInput);
-            // if (userID == -1) { // create user if doesn't exist
-            //     addUser(userInput);
-            //     userID = getUserID(userInput);
-            // }
+            let userID = await getUserID(userInput);
+            if (userID == -1) { // create user if doesn't exist
+                addUser(userInput);
+                userID = getUserID(userInput);
+            }
 
-            addReport(mediaID, 1, userInput);
+            addReport(mediaID, userID, userInput);
             resetForm();
             document.querySelector("#successMessage").style.display = "block";
             preserveInput(userInput);

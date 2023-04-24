@@ -83,7 +83,6 @@ router
   })
   .post(async (req, res) => {
     const reports = await db.Reports.findAll();
-    console.log(req.body)
     const currentId = reports.length > 0 ? reports[0].length + 1 : 1;
     try {
       await db.Reports.create({
