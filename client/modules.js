@@ -20,19 +20,35 @@ function uuidv4() {
 }
 
 function preserveInput(userInput) {
-    // preserve user info for another submission
-    $(".ui.form").form("set values", {
-        firstName: userInput.firstName,
-        lastName: userInput.lastName,
-        email: userInput.email,
-    });
-    document.querySelectorAll(".saveInput").forEach((field) => {
-        field.style.opacity = 0.6;
-    });
+    if (!localStorage.getItem("email")) {
+        localStorage.setItem("email", JSON.stringify(userInput.email));
+    }
+    if (!localStorage.getItem("first_name")) {
+        localStorage.setItem("first_name", JSON.stringify(userInput.first_name));
+    }
+    if (!localStorage.getItem("last_name")) {
+        localStorage.setItem("last_name", JSON.stringify(userInput.last_name));
+    }
+    restoreInput()
+}
+
+function restoreInput() {
+    let email = JSON.parse(localStorage.getItem("email"));
+    let first_name = JSON.parse(localStorage.getItem("first_name"));
+    let last_name = JSON.parse(localStorage.getItem("last_name"));
+    if (email && first_name && last_name) {
+        $(".ui.form").form("set values", {
+            first_name: first_name,
+            last_name: last_name,
+            email: email,
+        });
+        document.querySelectorAll(".saveInput").forEach((field) => {
+            field.style.opacity = 0.6;
+        });
+    }
 }
 
 async function initializeForm() {
-    localStorage.clear()
     // create lists of values for dropdowns
     let catalogData = JSON.parse(localStorage.getItem("catalogData"));
     if (!catalogData) {
@@ -47,6 +63,9 @@ async function initializeForm() {
         });
         localStorage.setItem("catalogData", JSON.stringify(catalogData));
     }
+
+    // restore user information if exists
+    restoreInput()
 
     // instantiate form elements
     $(".ui.plant").dropdown({
