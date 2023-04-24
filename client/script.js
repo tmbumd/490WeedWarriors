@@ -76,7 +76,7 @@ async function addReport(mediaID, userID, userInput) {
             timestamp: new Date().toISOString().slice(0, 19).replace("T", " "), // FIX TIMEZONE
             catalog_id: userInput.plant.split(",")[0],
             location: userInput.position,
-            severity_id: 1,
+            severity_id: Math.round(userInput.severity / 10),
             media_id: mediaID,
             comments: userInput.comments,
             user_id: userID,
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 alert("Error: Position is unavailable!");
             }
         },
-        { timeout: 5000 }
+        { timeout: 5000 } // check every 5 seconds 
     );
 
     $form.on("submit", async function (e) {
