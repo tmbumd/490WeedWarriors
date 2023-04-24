@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 alert("Error: Position is unavailable!");
             }
         },
-        { timeout: 0 }
+        { timeout: 5000 }
     );
 
     $form.on("submit", async function (e) {
@@ -112,14 +112,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             addMedia(mediaID, mediaURL); // insert new media record
             console.log("added media");
 
-            let userID = await getUserID(userInput);
-            if (userID == -1) {
-                // create user if doesn't exist
-                addUser(userInput);
-                userID = getUserID(userInput);
-            }
+            // let userID = await getUserID(userInput);
+            // if (userID == -1) {
+            //     // create user if doesn't exist
+            //     addUser(userInput);
+            //     userID = getUserID(userInput);
+            // }
 
-            addReport(mediaID, userID, userInput);
+            addReport(mediaID, 1, userInput);
             resetForm();
             document.querySelector("#successMessage").style.display = "block";
             preserveInput(userInput);

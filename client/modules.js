@@ -6,7 +6,6 @@ function resetForm() {
     $(".ui.form").form("clear");
     document.querySelector("#uploadedFilePath").innerHTML = "";
     document.querySelector("#plantLink").innerHTML = "";
-    setUserCoordinates();
     document.querySelector("#successMessage").style.display = "none";
     document.querySelector("#submitBtn").classList.remove("disabled");
 }
