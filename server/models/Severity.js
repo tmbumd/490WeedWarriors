@@ -10,9 +10,6 @@ export default (database, DataTypes) => {
             category: {
                 type: DataTypes.STRING,
                 allowNull: false
-            },
-            description: {
-                type: DataTypes.STRING
             }
         },
         { freezeTableName: true, timestamps: false }
