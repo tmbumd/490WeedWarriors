@@ -87,7 +87,7 @@ async function addReport(mediaID, userID, userInput) {
 document.addEventListener("DOMContentLoaded", async () => {
     await initializeForm();
     $form.removeClass("loading");
-    setUserCoordinates();
+    navigator.geolocation.watchPosition(setUserCoordinates());
 
     $form.on("submit", async function (e) {
         e.preventDefault();
@@ -115,3 +115,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 });
+
