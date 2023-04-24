@@ -21,7 +21,7 @@ async function initializeForm() {
         });
     });
 
-    // instantiate dropdowns
+    // instantiate form elements
     $(".ui.severity").dropdown({
         fullTextSearch: true,
         placeholder: "Choose severity",
@@ -33,6 +33,14 @@ async function initializeForm() {
         placeholder: "Search plant",
         values: catalogData,
     });
+
+    $('.ui.slider')
+        .slider({
+            min: 0,
+            max: 10,
+            start: 0,
+            step: 1,
+            smooth: true});
 
     // define form fields
     $(".ui.form").form({

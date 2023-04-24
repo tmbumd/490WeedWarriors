@@ -4,7 +4,7 @@ const form = $(".ui.form");
 let latLong = "";
 
 function setUserCoordinates() {
-    const coordinates = document.querySelector("#coordinates");
+    const coordinates = document.querySelector("#position");
     navigator.geolocation.getCurrentPosition(function (position) {
         latLong = `${position.coords.latitude}, ${position.coords.longitude}`;
         coordinates.value = `[${latLong}]`;

@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="images/favicon.ico" />
     <title>Weed Warriors</title>
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css" />
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.js"></script>
     <link rel="stylesheet" href="//brick.freetls.fastly.net/Karla:400,700,400i,700i" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" type="module"></script>
@@ -25,10 +24,10 @@
                     <label>Your name</label>
                     <div class="two fields extraspace">
                         <div class="field">
-                            <input type="text" name="firstName" placeholder="First Name" class="saveInput" />
+                            <input type="text" name="first_name" placeholder="First Name" class="saveInput" />
                         </div>
                         <div class="field">
-                            <input type="text" name="lastName" placeholder="Last Name" class="saveInput" />
+                            <input type="text" name="last_name" placeholder="Last Name" class="saveInput" />
                         </div>
                     </div>
                 </div>
@@ -41,13 +40,13 @@
                 <div class="field extraspace">
                     <label>Position</label>
                     <div class="ui disabled input">
-                        <input type="text" placeholder="" id="coordinates" />
+                        <input type="text" placeholder="" id="position" />
                     </div>
                 </div>
                 <div class="field extraspace">
                     <label>Plant type</label>
-                    <div class="ui fluid search selection dropdown plantType">
-                        <input type="hidden" id="plant" name="plant" />
+                    <div class="ui fluid search selection dropdown plantSelector">
+                        <input type="hidden" id="plant" />
                         <i class="dropdown icon"></i>
                         <div class="default text"></div>
                     </div>
@@ -61,11 +60,7 @@
                 </div>
                 <div class="field extraspace">
                     <label>How severe is the invasion?</label>
-                    <div class="ui fluid selection dropdown severity">
-                        <input type="hidden" name="severityLevel" />
-                        <i class="dropdown icon"></i>
-                        <div class="default text"></div>
-                    </div>
+                    <div class="ui yellow large bottom aligned labeled ticked slider" id="severityLevel"></div>
                 </div>
                 <div class="field extraspace">
                     <label>Please include a photo of your observation</label>
