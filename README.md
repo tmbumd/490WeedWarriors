@@ -1,4 +1,4 @@
-# Project Title
+# Weed Warriors
 
 A nice project with a nice description
 
