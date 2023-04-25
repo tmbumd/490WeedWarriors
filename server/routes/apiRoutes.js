@@ -65,7 +65,20 @@ router
       res.json(err);
     }
   })
-  .post(async (req, res) => { });
+  .post(async (req, res) => { 
+    const users = await db.users.findAll();
+    const currentId = users.length > 0 ? users[0].length + 1 : 1;
+    try{
+      await db.users.create({
+        user_id: currentId,
+        first_name : req.body.first_name,
+        last_name : req.body.last_name,
+        email : req.body.email
+      })
+    } catch (err){
+      res.json(err)
+    }
+  });
 
 router
   .route("/reports")
