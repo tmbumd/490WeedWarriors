@@ -33,8 +33,10 @@ async function getMediaID() {
 
 async function getUserID(userInput) {
     const query = `SELECT user_id FROM users WHERE email = '${userInput.email}' AND first_name = '${userInput.first_name}' AND last_name = '${userInput.last_name}'`;
+    console.log(query)
     const userFetch = await fetch(`/api/custom/${query}`);
     const user = await userFetch.json();
+    console.log(user)
     let userID = user.length > 0 ? user[0].user_id + 1 : -1;
     return userID;
 }
@@ -112,12 +114,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             addMedia(mediaID, mediaURL); // insert new media record
             console.log("added media");
 
-            // let userID = await getUserID(userInput);
-            // if (userID == -1) {
-            //     // create user if doesn't exist
-            //     addUser(userInput);
-            //     userID = getUserID(userInput);
-            // }
+            let userID = await getUserID(userInput);
+            console.log(userID)
+            if (userID == -1) {
+                // create user if doesn't exist
+                console.log("user doesn't exist")
+                await addUser(userInput);
+                userID = getUserID(userInput);
+                console.log(`created user ${userID}`)
+            }
 
             addReport(mediaID, 1, userInput);
             resetForm();
