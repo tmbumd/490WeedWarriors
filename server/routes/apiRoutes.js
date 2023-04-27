@@ -68,6 +68,7 @@ router
   .post(async (req, res) => { 
     try{
       await db.Users.create({
+        user_id : req.body.user_id,
         first_name : req.body.first_name,
         last_name : req.body.last_name,
         email : req.body.email

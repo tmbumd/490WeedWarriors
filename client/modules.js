@@ -56,7 +56,7 @@ document.querySelector('#userInfoBtn a').addEventListener('click', (e) => {
 
 async function initializeForm() {
     // create lists of values for dropdowns
-    let catalogData = JSON.parse(localStorage.getItem("catalogData"));
+    let catalogData = JSON.parse(sessionStorage.getItem("catalogData"));
     if (!catalogData) {
         const catalogFetch = await fetch("/api/catalog");
         const catalog = await catalogFetch.json();
@@ -67,7 +67,7 @@ async function initializeForm() {
                 value: `${plant.catalog_id},${plant.latin_name},${plant.common_name}`,
             });
         });
-        localStorage.setItem("catalogData", JSON.stringify(catalogData));
+        sessionStorage.setItem("catalogData", JSON.stringify(catalogData));
     }
 
     // restore user information if exists

@@ -2,6 +2,12 @@ import express from 'express';
 import apiRoutes from './server/routes/apiRoutes.js';
 import { Storage } from '@google-cloud/storage';
 import Multer from 'multer';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const router = express.Router();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const multer = Multer({
     storage: Multer.memoryStorage(),
@@ -41,6 +47,12 @@ app.post("/upload", multer.single("hidden-new-file"), (req, res) => {
         res.status(500).send(error);
     }
 });
+
+router.get('/oms', function (req, res) {
+    res.sendFile(path.join(__dirname + '/client/oms.html'));
+});
+
+app.use('/', router);
 
 app.listen(PORT, () => {
     console.log(`Now listening on port ${PORT}`);
