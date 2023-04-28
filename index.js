@@ -39,10 +39,9 @@ app.post("/upload", multer.single("hidden-new-file"), (req, res) => {
 
             blobStream.on("finish", () => {
                 res.status(200).send("Success");
-                console.log("Success");
             });
             blobStream.end(req.file.buffer);
-        } else throw "error with img";
+        } else throw "Error with img";
     } catch (error) {
         res.status(500).send(error);
     }

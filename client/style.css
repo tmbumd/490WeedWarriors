@@ -66,12 +66,12 @@ img {
   display: none;
 }
 
-#userInfoBtn {
+#clearUserInfoBtn {
   text-align: right;
   margin-top: 5px;
 }
 
-#userInfoBtn a {
+#clearUserInfoBtn a {
   display: none;
   margin-bottom: -30px
 }
