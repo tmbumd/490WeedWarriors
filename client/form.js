@@ -69,7 +69,6 @@ function resetForm() {
   $(".ui.form").form("clear");
   navigator.geolocation.getCurrentPosition(setUserCoordinates);
   document.querySelector("#uploadedFilePath").innerHTML = "";
-  document.querySelector("#plantLink").innerHTML = "";
   document.querySelector("#successMessage").style.display = "none";
   document.querySelector("#submitBtn").classList.remove("disabled");
 }
