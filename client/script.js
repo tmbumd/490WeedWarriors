@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   await initializeForm();
   $form.removeClass("loading");
   navigator.geolocation.getCurrentPosition(setUserCoordinates);
-  navigator.geolocation.watchPosition(setUserCoordinates);
   $form.on("submit", async function (e) {
     e.preventDefault();
     if ($form.form("is valid")) {

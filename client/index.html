@@ -37,7 +37,8 @@
                     <div class="ui input saveInput">
                         <input type="text" name="email" placeholder="user@email.com" id="email" />
                     </div>
-                    <p id="clearUserInfoBtn"><a href="#">Clear user info</a></p>
+                    <p></p>
+                    <span id="clearUserInfoBtn">Clear user info</span>
                 </div>
                 <div class="field extraspace">
                     <label>Position</label>
@@ -52,12 +53,12 @@
                         <i class="dropdown icon"></i>
                         <div class="default text"></div>
                     </div>
-                    <p id="plantLink"></p>
+                    <p></p>
                     <span id="plantGuide">
-                        <a href="PlantGuide.pdf" target="_blank">Common weeds</a>
+                        <a href="PlantGuide.pdf" target="_blank">See common weeds &nbsp; <i class="file pdf icon"></i></a>
                     </span>
                     <span id="plantIdentifier">
-                        <a href="https://plant.id" target="_blank">Plant identifier</a>
+                        <a href="https://plant.id" target="_blank">Plant identifier &nbsp; <i class="leaf icon"></i></a>
                     </span>
                 </div>
                 <div class="field extraspace">
@@ -71,8 +72,8 @@
                 <div class="field extraspace">
                     <label>Please include a photo of your observation</label>
                     <div>
-                        <label for="hidden-new-file" class="ui icon button">
-                            <i class="upload icon"></i>&nbsp; Upload file
+                        <label for="hidden-new-file" class="ui basic icon button">
+                            <i class="cloud upload icon"></i>&nbsp; Upload file
                         </label>
                         <input type="file" id="hidden-new-file" name="file" accept="image/jpeg" />
                         <p id="uploadedFilePath"></p>
@@ -82,7 +83,7 @@
                     <label>Comments</label>
                     <textarea rows="2" name="comments"></textarea>
                 </div>
-                <button class="ui button" type="submit" id="submitBtn">Submit</button>
+                <button class="ui blue button" type="submit" id="submitBtn">Submit</button>
             </form>
             <div class="ui positive message" id="successMessage">
                 <div class="header">Successfully submitted</div>
