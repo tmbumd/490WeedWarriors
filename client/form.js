@@ -55,16 +55,7 @@ async function initializeForm() {
       comments: "minLength[0]", // make comments optional
     },
   });
-
-  // listen for plant selection to show link
-  const plantSelector = document.querySelector("#plant");
-  const plantLink = document.querySelector("#plantLink");
-  plantSelector.addEventListener("change", () => {
-    const selectedPlant = plantSelector.value.split(",")[2];
-    const link = `https://www.google.com/search?q=${selectedPlant}&tbm=isch`;
-    plantLink.innerHTML = `<a href="${link}" target="_blank">Google images for ${selectedPlant}</a>`;
-  });
-
+  
   // listen for file upload to show path
   const fileUploadPath = document.querySelector("#uploadedFilePath");
   document.querySelector("#hidden-new-file").addEventListener("change", () => {
@@ -105,9 +96,9 @@ function restoreInput() {
     document.querySelectorAll(".saveInput").forEach((field) => {
       field.classList.add("disabled");
     });
-    document.querySelector("#clearUserInfoBtn a").style.display = "block";
+    document.querySelector("#clearUserInfoBtn").style.display = "block";
     document
-      .querySelector("#clearUserInfoBtn a")
+      .querySelector("#clearUserInfoBtn")
       .addEventListener("click", (e) => {
         clearInput();
       });
@@ -115,7 +106,7 @@ function restoreInput() {
 }
 
 function clearInput() {
-  document.querySelector("#clearUserInfoBtn a").style.display = "none";
+  document.querySelector("#clearUserInfoBtn").style.display = "none";
   localStorage.clear();
   resetForm();
   document.querySelectorAll(".saveInput").forEach((field) => {
