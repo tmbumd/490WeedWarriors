@@ -1,3 +1,30 @@
+/*Form Data Initialization:
+- The form.js file initializes form data and sets up event listeners for form elements.
+- It handles retrieving catalog data, restoring user information, and setting up dropdowns and form fields.
+
+User Input Handling:
+- The file includes functions for preserving, restoring, and clearing user input.
+- It uses local storage to store and retrieve user input data.
+
+Form Reset Function:
+- The resetForm function clears the form, resets input fields, and retrieves user coordinates.
+- It also handles clearing saved user information and controlling form elements.
+
+File Upload Handling:
+- Listeners are set up to handle file uploads and display the file path.
+- The form.js file includes functions for handling file uploads and showing the file path.
+
+Geolocation Handling:
+- The initializeForm function includes code to retrieve user coordinates and set the position value in the form.
+- It uses the setUserCoordinates function to set the user's geolocation.
+
+Local Storage Usage:
+- The file uses local storage to persist user input data and retrieve it when needed.
+- It saves and restores user information using the localStorage object.
+
+Form Field Validation:
+- The form.js file defines form field validations and required fields.
+- It ensures that certain fields are not empty and validates email input. */
 function setUserCoordinates(position) {
   document.querySelector(
     "#position"
