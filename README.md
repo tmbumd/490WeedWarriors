@@ -3,7 +3,7 @@
 
 # Weed Warriors
 
-> Frontend for a reporting system where users collaboratively map instances of local invasive plant species. 
+> PoC web application utilizing a GIS software to allow users to map, track, report, and subsequently eradicate invasive plant species in their area. 
 
 ## Prerequisites
 
